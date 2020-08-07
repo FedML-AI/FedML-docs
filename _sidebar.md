@@ -1,6 +1,6 @@
 * [Intro](/intro)
 * [Publications](/publications)
 * [Install](/install)
-* [Awesome-Federated-Learning](/Awesome-Federated-Learning)
+* [Awesome-Federated-Learning](/awesome-federated-learning)
 * [Trouble Shooting](/troubleshooting)
 * [Contact](/contact)

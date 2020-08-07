@@ -4,5 +4,5 @@
 
 > A Research Library and Benchmark for Federated Machine Learning
 
-[:octocat: GitHub](https://github.com/wzpan/wukong-robot/)
+[:octocat: GitHub](https://github.com/FedML-AI/FedML)
 [:green_book: Doc](/intro)

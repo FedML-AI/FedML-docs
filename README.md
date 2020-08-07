@@ -1,6 +1,6 @@
 # FedML-docs
 
-http://www.fedml.ai/FedML-docs/
+http://doc.fedml.ai
 
 This repo is used for hosting documentation site for [FedML](https://github.com/FedML-AI/FedML).
 

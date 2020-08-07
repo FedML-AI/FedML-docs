@@ -1,4 +1,4 @@
-* [Intro](/intro)
+* [Intro](/README)
 * [Publications](/publications)
 * [Install](/install)
 * [Trouble Shooting](/troubleshooting)

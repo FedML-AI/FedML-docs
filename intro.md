@@ -1,16 +1,17 @@
-# FedML
+# FedML: A Research Library and Benchmark for Federated Machine Learning
 
 !> Notice: FedML is evolving. We will update more features in next 1-2 months. Please email us if there is misinformation.
 
-# FedML: A Research Library and Benchmark for Federated Machine Learning
 [https://arxiv.org/abs/2007.13518](https://arxiv.org/abs/2007.13518)
 
 ## What is Federated Learning?
+
 Please read this long vision paper [Advances and Open Problems in Federated Learning](https://arxiv.org/abs/1912.04977).
 
 This publication list is also helpful: https://github.com/chaoyanghe/Awesome-Federated-Learning
 
 ## Introduction
+
 Federated learning is a rapidly growing research field in the machine learning domain. 
 Although considerable research efforts have been made, existing libraries cannot adequately support diverse algorithmic development (e.g., diverse topology and flexible message exchange), 
 and inconsistent dataset and model usage in experiments make fair comparisons difficult.
@@ -22,6 +23,7 @@ We believe FedML can provide an efficient and reproducible means of developing a
 For more details, please read our full paper: [https://arxiv.org/abs/2007.13518](https://arxiv.org/abs/2007.13518)
 
 ## Usage
+
 1. Research on FL algorithm or system
 2. Teaching in a ML course
 3. System prototype for industrial production.
@@ -51,12 +53,14 @@ Users can change this package to add more advanced algorithms.
 
 
 ## Join our Community
+
 Please join our community. We will post updated features and answer questions on Slack.
 
 [Join fedml.slack.com](https://join.slack.com/t/fedml/shared_invite/zt-gbpi8y2o-QMU0vhVHjm9Y9gqQu~eygg)
 
 
 ## Contributing
+
 We sincerely welcome contributors and believe in the power of the open source. We welcome expertise from two tracks, either research or engineering.
 
 1. If you are a researcher who needs APIs that our library does not support yet, please send us your valuable suggestions.
@@ -79,7 +83,9 @@ v) collecting realistic federated datasets by crowdsourcing.
 Please email us for further information. 
 
 ## Citation
+
 Please cite FedML in your publications if it helps your research:
+
 ```
 @article{chaoyanghe2020fedml,
   Author = {He, Chaoyang and Li, Songze and So, Jinhyun and Zhang, Mi and Wang, Hongyi and Wang, Xiaoyang and Vepakomma, Praneeth and Singh, Abhishek and Qiu, Hang and Shen, Li and Zhao, Peilin and Kang, Yan and Liu, Yang and Raskar, Ramesh and Yang, Qiang and Annavaram, Murali and Avestimehr, Salman},
@@ -88,10 +94,3 @@ Please cite FedML in your publications if it helps your research:
   Year = {2020}
 }
 ```
-
-## Contacts
-The corresponding author is:
- 
-Chaoyang He\
-chaoyang.he@usc.edu\
-http://chaoyanghe.com

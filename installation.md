@@ -3,4 +3,4 @@ FedML supports three computing paradigms: distributed computing, standalone simu
 
 - [FedML Distributed Computing](installation-distributed-computing.md)
 - [FedML Standalone Simulation](installation-standalone-simulation.md)
-- [FedML Mobile Server and Android SDK/App](installation-fedml-mobile-server.md)
+- [FedML Mobile and IoT](installation-fedml-mobile-server.md)

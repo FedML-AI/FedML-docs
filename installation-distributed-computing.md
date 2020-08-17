@@ -80,7 +80,7 @@ wandb login ee0b5f53d949c84cee7decbe7a629e63fb2f8408
 
 ## 3. Dataset Preparation
 "FedML/data" directory contains all datasets that we suggest. Please cd to corresponding directory and run the *.sh script. 
-The data will be download to the same path as the *.sh file. Here is an example for CIFAR-10:
+The data will be downloaded to the same path as the *.sh file. Here is an example for CIFAR-10:
 
 ```
 cd data/cifar10

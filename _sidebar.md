@@ -5,6 +5,9 @@
     - [FedML Mobile and IoT](installation-fedml-mobile-server.md)
   
 * [Experiments](/experiments)
+* [APIs](/api)
+    - [FedML-API (high-level)](api-fedml-api.md)
+    - [FedML-Core](api-core.md)
 * [Benchmark](/Benchmark)
 * [Publication](/publications)
 * [Contact](/contact)

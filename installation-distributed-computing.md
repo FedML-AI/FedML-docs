@@ -88,7 +88,7 @@ sh download_cifar10.sh
 ```
 After executing the above comands, the CIFAR-10 dataset is stored at "FedML/data/cifar10".
 
-## 3. Run Experiments to Check the Configuration Correctness
+## 4. Run Experiments to Check the Configuration Correctness
 To check if the above configuration is correct, we use the FedAvg algorithm as an example.
 
 ```

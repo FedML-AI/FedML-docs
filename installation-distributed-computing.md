@@ -78,117 +78,23 @@ wandb login ee0b5f53d949c84cee7decbe7a629e63fb2f8408
 
 (please modify the ID to your own)
 
-## 3. Run Experiments (ResNet)
+## 3. Dataset Preparation
+"FedML/data" directory contains all datasets that we suggest. Please cd to corresponding directory and run the *.sh script. 
+The data will be download to the same path as the *.sh file. Here is an example for CIFAR-10:
 
-### CIFAR10
-train on IID dataset 
 ```
+cd data/cifar10
+sh download_cifar10.sh
+```
+After executing the above comands, the CIFAR-10 dataset is stored at "FedML/data/cifar10".
+
+## 3. Run Experiments to Check the Configuration Correctness
+To check if the above configuration is correct, we use the FedAvg algorithm as an example.
+
+```
+cd fedml_experiments/distributed/fedavg
 sh run_fedavg_distributed_pytorch.sh 1 8 resnet56 homo 100 20 64 0.001 cifar10 "./../../../data/cifar10"
-
-##run on background
-nohup sh run_fedavg_distributed_pytorch.sh 1 8 resnet56 homo 100 20 64 0.001 cifar10 "./../../../data/cifar10" > ./fedavg-resnet-homo-cifar10.txt 2>&1 &
 ```
+Note that the "run_fedavg_distributed_pytorch.sh" script should be executed at the path "fedml_experiments/distributed/fedavg".
 
-train on non-IID dataset
-```
-sh run_fedavg_distributed_pytorch.sh 1 8 resnet56 hetero 100 20 64 0.001 cifar10 "./../../../data/cifar10"
-
-##run on background
-nohup sh run_fedavg_distributed_pytorch.sh 1 8 resnet56 hetero 100 20 64 0.001 cifar10 "./../../../data/cifar10" > ./fedavg-resnet-hetero-cifar10.txt 2>&1 &
-```
-
-
-### CIFAR100
-train on IID dataset 
-```
-sh run_fedavg_distributed_pytorch.sh 1 8 resnet56 homo 100 20 64 0.001 cifar100 "./../../../data/cifar100"
-
-##run on background
-nohup sh run_fedavg_distributed_pytorch.sh 1 8 resnet56 homo 100 20 64 0.001 cifar100 "./../../../data/cifar100" > ./fedavg-resnet-homo-cifar100.txt 2>&1 &
-```
-
-train on non-IID dataset
-```
-sh run_fedavg_distributed_pytorch.sh 1 8 resnet56 hetero 100 20 64 0.001 cifar100 "./../../../data/cifar100"
-
-##run on background
-nohup sh run_fedavg_distributed_pytorch.sh 1 8 resnet56 hetero 100 20 64 0.001 cifar100 "./../../../data/cifar100" > ./fedavg-resnet-hetero-cifar100.txt 2>&1 &
-```
-
-
-### CINIC10
-train on IID dataset 
-```
-sh run_fedavg_distributed_pytorch.sh 1 8 resnet56 homo 100 20 64 0.001 cinic10 "./../../../data/cinic10"
-
-##run on background
-nohup sh run_fedavg_distributed_pytorch.sh 1 8 resnet56 homo 100 20 64 0.001 cinic10 "./../../../data/cinic10" > ./fedavg-resnet-homo-cinic10.txt 2>&1 &
-```
-
-train on non-IID dataset
-```
-sh run_fedavg_distributed_pytorch.sh 1 8 resnet56 hetero 100 20 64 0.001 cinic10 "./../../../data/cinic10"
-
-##run on background
-nohup sh run_fedavg_distributed_pytorch.sh 1 8 resnet56 hetero 100 20 64 0.001 cinic10 "./../../../data/cinic10" > ./fedavg-resnet-hetero-cinic10.txt 2>&1 &
-```
-
-
-## 4. Run Experiments (MobileNet)
-
-#### CIFAR10
-train on IID dataset 
-```
-sh run_fedavg_distributed_pytorch.sh 1 8 mobilenet homo 100 20 64 0.001 cifar10 "./../../../data/cifar10"
-
-##run on background
-nohup sh run_fedavg_distributed_pytorch.sh 1 8 mobilenet homo 100 20 64 0.001 cifar10 "./../../../data/cifar10" > ./fedavg-mobilenet-homo-cifar10.txt 2>&1 &
-```
-
-train on non-IID dataset
-```
-sh run_fedavg_distributed_pytorch.sh 1 8 mobilenet hetero 100 20 64 0.001 cifar10 "./../../../data/cifar10"
-
-##run on background
-nohup sh run_fedavg_distributed_pytorch.sh 1 8 mobilenet hetero 100 20 64 0.001 cifar10 "./../../../data/cifar10" > ./fedavg-mobilenet-hetero-cifar10.txt 2>&1 &
-```
-
-
-#### CIFAR100
-train on IID dataset 
-```
-sh run_fedavg_distributed_pytorch.sh 1 8 mobilenet homo 100 20 64 0.001 cifar100 "./../../../data/cifar100"
-
-##run on background
-nohup sh run_fedavg_distributed_pytorch.sh 1 8 mobilenet homo 100 20 64 0.001 cifar100 "./../../../data/cifar100" > ./fedavg-mobilenet-homo-cifar100.txt 2>&1 &
-```
-
-train on non-IID dataset
-```
-sh run_fedavg_distributed_pytorch.sh 1 8 mobilenet hetero 100 20 64 0.001 cifar100 "./../../../data/cifar100"
-
-##run on background
-nohup sh run_fedavg_distributed_pytorch.sh 1 8 mobilenet hetero 100 20 64 0.001 cifar100 "./../../../data/cifar100" > ./fedavg-mobilenet-hetero-cifar100.txt 2>&1 &
-```
-
-
-#### CINIC10
-train on IID dataset 
-```
-sh run_fedavg_distributed_pytorch.sh 1 8 mobilenet homo 100 20 64 0.001 cinic10 "./../../../data/cinic10"
-
-##run on background
-nohup sh run_fedavg_distributed_pytorch.sh 1 8 mobilenet homo 100 20 64 0.001 cinic10 "./../../../data/cinic10" > ./fedavg-mobilenet-homo-cinic10.txt 2>&1 &
-```
-
-train on non-IID dataset
-```
-sh run_fedavg_distributed_pytorch.sh 1 8 mobilenet hetero 100 20 64 0.001 cinic10 "./../../../data/cinic10"
-
-##run on background
-nohup sh run_fedavg_distributed_pytorch.sh 1 8 mobilenet hetero 100 20 64 0.001 cinic10 "./../../../data/cinic10" > ./fedavg-mobilenet-hetero-cinic10.txt 2>&1 &
-```
-
-
-
-
+If you find any issue in above steps, please feel free to post comments. The comments will be transformed as a GitHub issue.

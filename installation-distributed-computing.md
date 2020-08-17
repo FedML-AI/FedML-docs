@@ -1,6 +1,6 @@
 # FedML Distributed Computing Hardware and Software Configuration
 
-## 1. Hardware and Requirements
+## 1. Hardware Requirements
 ![multi-gpu-server](./image/multi-gpu-topo.png)
 
 The computing architecture is comprised of
@@ -69,18 +69,18 @@ If you want use node1 and node2 to run our program, the "mpi_host_file" should b
 > node3
 
 
-## 3. install other required packages
+### **- install other required packages**
 > pip install -r requirements.txt
 
 
-## 4. Experimental Tracking Platform (report real-time result to wandb.com)
+### **- Experimental Tracking Platform (report real-time result to wandb.com)**
 wandb login ee0b5f53d949c84cee7decbe7a629e63fb2f8408
 
 (please modify the ID to your own)
 
-## ResNet56 Federated Training
+## 3. Run Experiments (ResNet)
 
-#### CIFAR10
+### CIFAR10
 train on IID dataset 
 ```
 sh run_fedavg_distributed_pytorch.sh 1 8 resnet56 homo 100 20 64 0.001 cifar10 "./../../../data/cifar10"
@@ -98,7 +98,7 @@ nohup sh run_fedavg_distributed_pytorch.sh 1 8 resnet56 hetero 100 20 64 0.001 c
 ```
 
 
-#### CIFAR100
+### CIFAR100
 train on IID dataset 
 ```
 sh run_fedavg_distributed_pytorch.sh 1 8 resnet56 homo 100 20 64 0.001 cifar100 "./../../../data/cifar100"
@@ -116,7 +116,7 @@ nohup sh run_fedavg_distributed_pytorch.sh 1 8 resnet56 hetero 100 20 64 0.001 c
 ```
 
 
-#### CINIC10
+### CINIC10
 train on IID dataset 
 ```
 sh run_fedavg_distributed_pytorch.sh 1 8 resnet56 homo 100 20 64 0.001 cinic10 "./../../../data/cinic10"
@@ -134,7 +134,7 @@ nohup sh run_fedavg_distributed_pytorch.sh 1 8 resnet56 hetero 100 20 64 0.001 c
 ```
 
 
-## MobileNet Federated Training
+## 4. Run Experiments (MobileNet)
 
 #### CIFAR10
 train on IID dataset 

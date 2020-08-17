@@ -97,4 +97,4 @@ sh run_fedavg_distributed_pytorch.sh 1 8 resnet56 homo 100 20 64 0.001 cifar10 "
 ```
 Note that the "run_fedavg_distributed_pytorch.sh" script should be executed at the path "fedml_experiments/distributed/fedavg".
 
-If you find any issue in above steps, please feel free to post comments. The comments will be transformed as a GitHub issue.
+If you find any issue in above steps, please feel free to post comments. New comments will be transformed as GitHub issues.

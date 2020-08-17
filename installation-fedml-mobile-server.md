@@ -1,1 +1,1 @@
-# # FedML-Mobile Hardware and Software Configuration
+# FedML-Mobile Hardware and Software Configuration

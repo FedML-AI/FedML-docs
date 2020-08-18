@@ -72,10 +72,10 @@
       repo: 'FedML-docs',
       owner: 'FedML-AI',
       admin: ['wzpan', 'chaoyanghe'],
-      id: window.location.href.slice(0, 50),
-      language: 'en',
-    // facebook-like distraction free mode
-    distractionFreeMode: false
+      id: window.location.href.indexOf('?') >= 0 ? window.location.href.slice(0, window.location.href.indexOf('?')).slice(0, 50): window.location.href.slice(0, 50),
+      title: document.title.slice(0, document.title.indexOf(' -')),
+      // facebook-like distraction free mode
+      distractionFreeMode: false
   })
   </script>
   <script src="//unpkg.com/docsify/lib/plugins/ga.min.js"></script>

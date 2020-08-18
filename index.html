@@ -66,14 +66,13 @@
   <script src="//unpkg.com/docsify-copy-code"></script>  
   <script src="//unpkg.com/gitalk/dist/gitalk.min.js"></script>
   <script>
-  var href = window.location.href;
   const gitalk = new Gitalk({
       clientID: 'f9a2f47df3d681560afd',
       clientSecret: '10e6c8a9606f570894d8c67cb738a369ffc0e347',
       repo: 'FedML-docs',
       owner: 'FedML-AI',
       admin: ['wzpan', 'chaoyanghe'],
-      id: href.indexOf('?') >= 0 ? href.slice(0, href.indexOf('?')): href.slice(0, 50),
+      id: window.location.href.indexOf('?') >= 0 ? window.location.href.slice(0, window.location.href.indexOf('?')): window.location.href.slice(0, 50),
       title: document.title.slice(0, document.title.indexOf(' -')),
       // facebook-like distraction free mode
       distractionFreeMode: false

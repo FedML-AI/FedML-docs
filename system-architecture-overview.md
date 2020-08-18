@@ -1,8 +1,10 @@
-## System Architecture Overview
+# System Architecture Overview
 
+## System Design
 ![architecture](./image/architecture_for_website.png)
 
-The functionality of each package is as follows:
+## Code Structure
+The functionality of each code package is as follows:
 
 **fedml_core**: The FedML low level API package. This package implements distributed computing by communication backend like MPI, and also support topology management. 
 Other low-level APIs related to security and privacy are also supported.

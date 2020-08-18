@@ -43,6 +43,8 @@ The sending message is normally executed after handling the received message. As
 workers can send any message type and related message parameters during the train() function.
 
 ## Topology management
+?> Code Path: https://github.com/FedML-AI/FedML/tree/master/fedml_core/distributed/topology
+
 As demonstrated in Figure 3, FL has various topology definitions, 
 such as vertical FL, split learning, decentralized FL, and Hierarchical FL. 
 In order to meet such diverse requirements, FedML provides TopologyManager to manage the topology 
@@ -51,6 +53,119 @@ Specifically, after the initial setting of TopologyManager is completed,
 for each trainer in the network, the neighborhood worker ID can be queried through the TopologyManager. 
 In line 26 of Figure 2, we see that the trainer can query its neighbor nodes 
 through the TopologyManager before sending its message. 
+
+
+?>  `BaseTopologyManager`  is the abstract class that defines three interfaces:  `generate_topology()`,  `get_in_neighbor_list()`, and  `get_out_neighbor_list()`.
+All subclasses follow this definition.
+
+``` python
+import abc
+
+
+class BaseTopologyManager(abc.ABC):
+
+    @abc.abstractmethod
+    def generate_topology(self):
+        pass
+
+    @abc.abstractmethod
+    def get_in_neighbor_list(self, node_index):
+        pass
+
+    @abc.abstractmethod
+    def get_out_neighbor_list(self, node_index):
+        pass
+
+```
+
+
+?>  In out current version, the predefined classes that inherit from `BaseTopologyManager` 
+include `SymmetricTopologyManager` and `AsymmetricTopologyManager`. `SymmetricTopologyManager` supports symmetric topology 
+which has the same IN and OUT neighbor list, while `AsymmetricTopologyManager` has asymmetric topology that IN and OUT neighbor list are different.   
+`SymmetricTopologyManager` and `AsymmetricTopologyManager` also differs in the initialization method.
+
+``` python
+class SymmetricTopologyManager(BaseTopologyManager):
+    """
+    The topology definition is determined by this initialization method.
+
+    Arguments:
+        n (int): number of nodes in the topology.
+        neighbor_num (int): number of neighbor for each node
+    """
+    def __init__(self, n, neighbor_num=2):
+        ...
+```
+``` python
+class AsymmetricTopologyManager(BaseTopologyManager):
+
+    """
+    The topology definition is determined by this initialization method.
+
+    Arguments:
+        n (int): number of nodes in the topology.
+        undirected_neighbor_num (int): number of undirected (symmetric) neighbors for each node
+        out_directed_neighbor (int): number of out (asymmetric) neighbors for each node
+    """
+    def __init__(self, n, undirected_neighbor_num=3, out_directed_neighbor=3):
+        ...
+```
+
+?> The examples below show the API calling that constructs a ring topology with `SymmetricTopologyManager`, and a asymmetric topology with `AsymmetricTopologyManager`.
+``` python
+    # generate a ring topology
+    tpmgr = SymmetricTopologyManager(6, 2)
+    tpmgr.generate_topology()
+    print(tpmgr.topology)
+
+    # the print result is:
+    [[0.33333334 0.33333334 0.         0.         0.         0.33333334]
+     [0.33333334 0.33333334 0.33333334 0.         0.         0.        ]
+     [0.         0.33333334 0.33333334 0.33333334 0.         0.        ]
+     [0.         0.         0.33333334 0.33333334 0.33333334 0.        ]
+     [0.         0.         0.         0.33333334 0.33333334 0.33333334]
+     [0.33333334 0.         0.         0.         0.33333334 0.33333334]]
+
+    # get the out neighbor list for node 1
+    out_neighbor_list = tpmgr.get_out_neighbor_list(1)
+    print(out_neighbor_list)
+
+    # the print result is:
+    [0.33333334 0.33333334 0.33333334 0.         0.         0.        ]
+    
+```
+
+``` python
+    # generate a asymmetric topology
+    tpmgr = AsymmetricTopologyManager(8, 4, 2)
+    tpmgr.generate_topology()
+    print(tpmgr.topology)
+
+    # the print result is: 
+    [[0.14285715 0.14285715 0.14285715 0.14285715 0.14285715 0.         0.14285715 0.14285715]
+     [0.125      0.125      0.125      0.125      0.125      0.125      0.125      0.125     ]
+     [0.14285715 0.14285715 0.14285715 0.14285715 0.14285715 0.14285715 0.         0.14285715]
+     [0.         0.16666667 0.16666667 0.16666667 0.16666667 0.16666667 0.16666667 0.        ]
+     [0.         0.         0.2        0.2        0.2        0.2        0.2        0.        ]
+     [0.16666667 0.         0.         0.16666667 0.16666667 0.16666667 0.16666667 0.16666667]
+     [0.2        0.         0.         0.         0.2        0.2        0.2        0.2       ]
+     [0.14285715 0.14285715 0.         0.14285715 0.14285715 0.14285715 0.14285715 0.14285715]]
+
+    # get the OUT neighbor list for node 1
+    out_neighbor_list = tpmgr.get_out_neighbor_list(1)
+    print(out_neighbor_list)
+
+    # the print result is:
+    [0.125 0.125 0.125 0.125 0.125 0.125 0.125 0.125]
+
+    # get the IN neighbor list for node 1
+    in_neighbor_list = tpmgr.get_in_neighbor_list(1)
+    print(in_neighbor_list)
+
+    # the print result is:
+    [0.14285715, 0.125, 0.14285715, 0.16666667, 0.0, 0.0, 0.0, 0.14285715]
+    
+```
 
 ## Trainer and coordinator
 We also need the coordinator to complete the training (\textit{e.g.}, in the FedAvg algorithm, the central worker is the coordinator while the others are trainers). For the trainer and coordinator, \texttt{FedML} does not over-design. Rather, it gives the implementation completely to the developers, reflecting the flexibility of our framework. The implementation of the trainer and coordinator is similar to the process in Figure \ref{fig:overview_training_oriented}, which is completely consistent with the training implementation of a standalone version training. We provide some reference implementations of different trainers and coordinators in our source code (Section \ref{sec:reference_examples}).

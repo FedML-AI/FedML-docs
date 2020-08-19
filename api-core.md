@@ -55,8 +55,7 @@ In line 26 of Figure 2, we see that the trainer can query its neighbor nodes
 through the TopologyManager before sending its message. 
 
 
-?>  `BaseTopologyManager`  is the abstract class that defines three interfaces:  `generate_topology()`,  `get_in_neighbor_list()`, and  `get_out_neighbor_list()`.
-All subclasses follow this definition.
+?>  `BaseTopologyManager`  is the abstract class that defines five interfaces as follows.
 
 ``` python
 import abc
@@ -69,11 +68,19 @@ class BaseTopologyManager(abc.ABC):
         pass
 
     @abc.abstractmethod
-    def get_in_neighbor_list(self, node_index):
+    def get_in_neighbor_idx_list(self, node_index):
         pass
 
     @abc.abstractmethod
-    def get_out_neighbor_list(self, node_index):
+    def get_out_neighbor_idx_list(self, node_index):
+        pass
+
+    @abc.abstractmethod
+    def get_in_neighbor_weights(self, node_index):
+        pass
+
+    @abc.abstractmethod
+    def get_out_neighbor_weights(self, node_index):
         pass
 
 ```
@@ -116,54 +123,80 @@ class AsymmetricTopologyManager(BaseTopologyManager):
     # generate a ring topology
     tpmgr = SymmetricTopologyManager(6, 2)
     tpmgr.generate_topology()
-    print(tpmgr.topology)
+    print("tpmgr.topology = " + str(tpmgr.topology))
 
-    # the print result is:
-    [[0.33333334 0.33333334 0.         0.         0.         0.33333334]
+    # get the OUT neighbor weights for node 1
+    out_neighbor_weights = tpmgr.get_out_neighbor_weights(1)
+    print("out_neighbor_weights = " + str(out_neighbor_weights))
+
+    # get the OUT neighbor index list for node 1
+    out_neighbor_idx_list = tpmgr.get_out_neighbor_idx_list(1)
+    print("out_neighbor_idx_list = " + str(out_neighbor_idx_list))
+
+    # get the IN neighbor weights for node 1
+    in_neighbor_weights = tpmgr.get_in_neighbor_weights(1)
+    print("in_neighbor_weights = " + str(in_neighbor_weights))
+
+    # get the IN neighbor index list for node 1
+    in_neighbor_idx_list = tpmgr.get_in_neighbor_idx_list(1)
+    print("in_neighbor_idx_list = " + str(in_neighbor_idx_list))
+
+    # The result is: 
+    tpmgr.topology = [[0.33333334 0.33333334 0.         0.         0.         0.33333334]
      [0.33333334 0.33333334 0.33333334 0.         0.         0.        ]
      [0.         0.33333334 0.33333334 0.33333334 0.         0.        ]
      [0.         0.         0.33333334 0.33333334 0.33333334 0.        ]
      [0.         0.         0.         0.33333334 0.33333334 0.33333334]
      [0.33333334 0.         0.         0.         0.33333334 0.33333334]]
-
-    # get the out neighbor list for node 1
-    out_neighbor_list = tpmgr.get_out_neighbor_list(1)
-    print(out_neighbor_list)
-
-    # the print result is:
-    [0.33333334 0.33333334 0.33333334 0.         0.         0.        ]
-    
+    out_neighbor_weights = [0.33333334 0.33333334 0.33333334 0.         0.         0.        ]
+    out_neighbor_idx_list = [0, 2]
+    in_neighbor_weights = [0.33333334 0.33333334 0.33333334 0.         0.         0.        ]
+    in_neighbor_idx_list = [0, 2]
 ```
-
 ``` python
     # generate a asymmetric topology
     tpmgr = AsymmetricTopologyManager(8, 4, 2)
     tpmgr.generate_topology()
     print(tpmgr.topology)
 
-    # the print result is: 
-    [[0.14285715 0.14285715 0.14285715 0.14285715 0.14285715 0.         0.14285715 0.14285715]
-     [0.125      0.125      0.125      0.125      0.125      0.125      0.125      0.125     ]
-     [0.14285715 0.14285715 0.14285715 0.14285715 0.14285715 0.14285715 0.         0.14285715]
-     [0.         0.16666667 0.16666667 0.16666667 0.16666667 0.16666667 0.16666667 0.        ]
-     [0.         0.         0.2        0.2        0.2        0.2        0.2        0.        ]
-     [0.16666667 0.         0.         0.16666667 0.16666667 0.16666667 0.16666667 0.16666667]
-     [0.2        0.         0.         0.         0.2        0.2        0.2        0.2       ]
-     [0.14285715 0.14285715 0.         0.14285715 0.14285715 0.14285715 0.14285715 0.14285715]]
+    # get the OUT neighbor weights for node 1
+    out_neighbor_weights = tpmgr.get_out_neighbor_weights(1)
+    print(out_neighbor_weights)
 
-    # get the OUT neighbor list for node 1
-    out_neighbor_list = tpmgr.get_out_neighbor_list(1)
-    print(out_neighbor_list)
+    # get the OUT neighbor index list for node 1
+    out_neighbor_idx_list = tpmgr.get_out_neighbor_idx_list(1)
+    print(out_neighbor_idx_list)
 
-    # the print result is:
-    [0.125 0.125 0.125 0.125 0.125 0.125 0.125 0.125]
+    # get the IN neighbor weights for node 1
+    in_neighbor_weights = tpmgr.get_in_neighbor_weights(1)
+    print(in_neighbor_weights)
 
-    # get the IN neighbor list for node 1
-    in_neighbor_list = tpmgr.get_in_neighbor_list(1)
-    print(in_neighbor_list)
+    # get the IN neighbor index list for node 1
+    in_neighbor_idx_list = tpmgr.get_in_neighbor_idx_list(1)
+    print(in_neighbor_idx_list)
 
-    # the print result is:
-    [0.14285715, 0.125, 0.14285715, 0.16666667, 0.0, 0.0, 0.0, 0.14285715]
+    # the result is:
+    tpmgr.topology = [[0.16666667 0.16666667 0.16666667 0.         0.16666667 0.
+      0.16666667 0.16666667]
+     [0.16666667 0.16666667 0.16666667 0.16666667 0.16666667 0.
+      0.         0.16666667]
+     [0.14285715 0.14285715 0.14285715 0.14285715 0.14285715 0.14285715
+      0.         0.14285715]
+     [0.14285715 0.14285715 0.14285715 0.14285715 0.14285715 0.14285715
+      0.14285715 0.        ]
+     [0.         0.         0.2        0.2        0.2        0.2
+      0.2        0.        ]
+     [0.         0.16666667 0.         0.16666667 0.16666667 0.16666667
+      0.16666667 0.16666667]
+     [0.16666667 0.         0.16666667 0.         0.16666667 0.16666667
+      0.16666667 0.16666667]
+     [0.14285715 0.14285715 0.         0.14285715 0.14285715 0.14285715
+      0.14285715 0.14285715]]
+    out_neighbor_weights = [0.16666667 0.16666667 0.16666667 0.16666667 0.16666667 0.
+     0.         0.16666667]
+    out_neighbor_idx_list = [0, 2, 3, 4, 7]
+    in_neighbor_weights = [0.16666667, 0.16666667, 0.14285715, 0.14285715, 0.0, 0.16666667, 0.0, 0.14285715]
+    in_neighbor_idx_list = [0, 2, 3, 5, 7]
     
 ```
 

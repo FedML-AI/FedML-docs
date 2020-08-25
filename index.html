@@ -7,12 +7,26 @@
   <meta name="description" content="A Research Library and Benchmark for Federated Machine Learning">
   <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
   <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/docsify/lib/themes/buble.css">
-  <link rel="stylesheet" href="//unpkg.com/gitalk/dist/gitalk.css">
+  <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/gitalk/dist/gitalk.css">
   <script src="//unpkg.com/docsify-edit-on-github/index.js"></script>
+  <script src="//cdn.jsdelivr.net/npm/docsify/lib/plugins/gitalk.min.js"></script>
+  <script src="//cdn.jsdelivr.net/npm/gitalk/dist/gitalk.min.js"></script>
 </head>
 <body>
   <div id="app"></div>
   <script>
+
+    var gitalkConfig = {
+        clientID: 'f9a2f47df3d681560afd',
+        clientSecret: '10e6c8a9606f570894d8c67cb738a369ffc0e347',
+        repo: 'FedML-docs',
+        owner: 'FedML-AI',
+        admin: ['wzpan', 'chaoyanghe'],
+        id: location.hash.slice(0, 50),
+        // facebook-like distraction free mode
+        distractionFreeMode: false,
+    };
+
    window.$docsify = {
        loadSidebar: true,
        subMaxLevel: 2,
@@ -34,23 +48,29 @@
              })
            },
            function (hook, vm) {
-             hook.mounted(function() {
-               var div = Docsify.dom.create('div')
-               div.id = 'gitalk-container'
-               var main = Docsify.dom.getNode('#main')
-               div.style = `width: ${main.clientWidth}px; margin: 0 auto 20px;`
-               Docsify.dom.appendTo(Docsify.dom.find('.content'), div)
-               var script = Docsify.dom.create('script')
-               script.async = true
-               var ctx = `gitalk.render('gitalk-container')`
-               script.textContent = ctx
-               Docsify.dom.appendTo(Docsify.dom.body, script)
-             })
-             hook.doneEach(function() {
-               var el = document.getElementById('gitalk-container')
-               while(el.hasChildNodes()) el.removeChild(el.firstChild)
-               gitalk.render('gitalk-container')
-             })
+               hook.doneEach(function() {
+                   var label, domObj, main, divEle, gitalk;
+                   label = vm.route.path.split("/").pop();
+                   domObj = Docsify.dom;
+                   main = domObj.getNode("#main");
+
+                   Array.apply(
+                       null,
+                       document.querySelectorAll("div.gitalk-container")
+                   ).forEach(function(ele) {
+                       ele.remove();
+                   });
+
+                   divEle = domObj.create("div");
+                   divEle.id = "gitalk-container-" + label;
+                   divEle.className = "gitalk-container";
+                   divEle.style = "width: " + main.clientWidth + "px; margin: 0 auto 20px;";
+                   domObj.appendTo(domObj.find(".content"), divEle);
+                   gitalk = new Gitalk(
+                       Object.assign(gitalkConfig, { id: !label ? "home" : label })
+                   );
+                   gitalk.render("gitalk-container-" + label);
+               });
            }
        ]
    }
@@ -63,20 +83,6 @@
   <script src="//unpkg.com/docsify/lib/plugins/emoji.min.js"></script>
   <script src="//unpkg.com/docsify/lib/plugins/zoom-image.min.js"></script>
   <script src="//unpkg.com/docsify-copy-code"></script>  
-  <script src="//unpkg.com/gitalk/dist/gitalk.min.js"></script>
-  <script>
-  const gitalk = new Gitalk({
-      clientID: 'f9a2f47df3d681560afd',
-      clientSecret: '10e6c8a9606f570894d8c67cb738a369ffc0e347',
-      repo: 'FedML-docs',
-      owner: 'FedML-AI',
-      admin: ['wzpan', 'chaoyanghe'],
-      id: location.hash.slice(0, 50),
-      // facebook-like distraction free mode
-      distractionFreeMode: false,
-      language: 'en'
-  })
-  </script>
   <script src="//unpkg.com/docsify/lib/plugins/ga.min.js"></script>
 </body>
 </html>

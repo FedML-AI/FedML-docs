@@ -86,7 +86,7 @@ pip install --upgrade wandb
 ### Install Other Required Packages
 
 ``` bash
-cd fedml_experiments/distributed \
+cd fedml_experiments/distributed
 pip install -r requirements.txt
 ```
 
@@ -98,7 +98,7 @@ pip install -r requirements.txt
 The data will be downloaded to the same path as the *.sh file. Here is an example for CIFAR-10:
 
 ``` bash
-cd data/cifar10 \
+cd data/cifar10
 sh download_cifar10.sh
 ```
 

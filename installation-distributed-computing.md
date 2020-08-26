@@ -10,7 +10,7 @@ The computing architecture is comprised of
 
 Note: 1) Any FL topology can be ran in this physical configuration (e.g. decentralized FL); 2) High bandwidth configuration such as InfiniBand is optional.
 
-### - NFS (Network File System) Configuration
+### NFS (Network File System) Configuration
 
 Please google related installment instructions according to the OS version of your server.
 After installation, please change the ssh configuration for your cluster so as to login without passwords.

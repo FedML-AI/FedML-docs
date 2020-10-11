@@ -4,6 +4,7 @@
     - [FedML Distributed Computing](installation-distributed-computing.md)
     - [FedML Standalone Simulation](installation-standalone-simulation.md)
     - [FedML Mobile and IoT](installation-fedml-mobile-server.md)
+    - [Data Preparation](installation-data-preparation.md)
 * [API Docs](/api)
     - [FedML-Core](api-core.md)
     - [FedML-API (high-level)](api-fedml-api.md)

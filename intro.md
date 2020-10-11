@@ -34,8 +34,8 @@ For more details, please read our full paper: [https://arxiv.org/abs/2007.13518]
 
 Please join our community. We will post updated features and answer questions on Slack.
 
-[Join fedml.slack.com](https://join.slack.com/t/fedml/shared_invite/zt-gbpi8y2o-QMU0vhVHjm9Y9gqQu~eygg)
-
+[Join fedml.slack.com](https://join.slack.com/t/fedml/shared_invite/zt-havwx1ee-a1xfOUrATNfc9DFqU~r34w)
+(this is a link that never expires)
 
 ## Contributing
 

@@ -4,7 +4,7 @@
     - [FedML Distributed Computing](installation-distributed-computing.md)
     - [FedML Standalone Simulation](installation-standalone-simulation.md)
     - [FedML Mobile and IoT](installation-fedml-mobile-server.md)
-* [Datasets and Models]
+* [Datasets and Models](/datasets-and-models)
     - [Supports Datasets and Models](datasets-and-models-supported)
 * [API Docs](/api)
     - [FedML-Core](api-core.md)

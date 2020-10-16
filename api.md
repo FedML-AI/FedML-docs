@@ -5,5 +5,3 @@ Please check the following links to see the API introduction and tutorials.
 - [FedML-Core](api-core.md)
 - [FedML-API (high-level)](api-fedml-api.md)
 - [FedML-Mobile](api-fedml-mobile.md)
-- [Tutorial (Distributed)](api-tutorial-distributed.md)
-- [Tutorial (Mobile/IoT)](api-tutorial-mobile.md)

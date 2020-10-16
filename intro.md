@@ -1,7 +1,5 @@
 # FedML: A Research Library and Benchmark for Federated Machine Learning
-
-!> Notice: FedML is evolving. We will update more features in next 1-2 months. Please email us if there is misinformation.
-
+The best way to understand FedML is to read our paper:
 [https://arxiv.org/abs/2007.13518](https://arxiv.org/abs/2007.13518)
 
 ## What is Federated Learning?

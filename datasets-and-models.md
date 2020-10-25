@@ -98,7 +98,7 @@ We will support more advanced models and datasets, such as FedCV, FedNLP (Transf
 
 Datasets are loaded by data_loader.py (located under fedml_api/data_preprocessing/{dataset}/.) All the returned data are in the form of pytorch [Dataloader](https://pytorch.org/docs/stable/data.html).
 
-- [emnist](/datasets-and-models-dataloader-fedemnist.md)
-- [cifar100](/datasets-and-models-dataloader-fedcifar100.md)
-- [shakspeare](/datasets-and-models-dataloader-fedshakespeare.md)
-- [stackoverflow](/datasets-and-models-dataloader-stackoverflow.md)
+- [emnist]
+- [cifar100]
+- [shakspeare]
+- [stackoverflow]

@@ -36,8 +36,8 @@ Please check `create_model(args, model_name, output_dim)` and `load_data(args, d
 ## **Datasets**
 
 FedMl suppports multiple datasets for users to experiment on various federated learning tasks. Currently, our framework covers datasets in the field of computer vision and natural language processing.
-
-### **Datasets list**
+<!-- 
+## **Datasets list** -->
 
 #### CV
 
@@ -58,7 +58,7 @@ Shakespeare dataset is built from the collective works of William Shakespeare. T
 Stack Overflow dataset originally hosted by Kaggle consists of questions and answers from the website Stack Overflow. This dataset is used to perform two tasks: tag prediction via logistic regression and next word prediction. Suggested by "Adaptive Federated Optimization" (https://arxiv.org/abs/2003.00295, Google AI).
 
 
-### **Datasets download**
+## **Datasets download**
 
 For datasets suggested by Google AI, in order to support more frameworks like PyTorch, we loaded data from [TensorFlow Federated (TFF)](https://www.tensorflow.org/federated/api_docs/python/tff/simulation/datasets) load_data API to get the unzipped raw data in h5 format saved it on google drive.
 
@@ -93,3 +93,12 @@ python dataset.py
 TFF dependency is required to get this script work. Please check it out: https://www.tensorflow.org/federated/install. 
 
 We will support more advanced models and datasets, such as FedCV, FedNLP (Transformer), FedGCN, FedGAN. Please stay tuned!
+
+## **Datasets usage** - dataloader
+
+Datasets are loaded by data_loader.py (located under fedml_api/data_preprocessing/{dataset}/.) All the returned data are in the form of pytorch [Dataloader](https://pytorch.org/docs/stable/data.html).
+
+- [emnist](/datasets-and-models-dataloader-fedemnist.md)
+- [cifar100](/datasets-and-models-dataloader-fedcifar100.md)
+- [shakspeare](/datasets-and-models-dataloader-fedshakespeare.md)
+- [stackoverflow](/datasets-and-models-dataloader-stackoverflow.md)

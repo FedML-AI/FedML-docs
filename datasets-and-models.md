@@ -74,7 +74,7 @@ The structure of each folder is like:
 
 ```
 
-Users can grab the dataset in either of three ways:
+Users can grab the dataset in either of two ways:
 
 #####  1.Download through bash script from google drive
 ```bash
@@ -85,12 +85,6 @@ sh download_{dataset}.sh
 #####  2.Manually download from google drive
 The link to google drive is included in **README.md** in each dataset folder. 
 You can also find all the datasets here: https://drive.google.com/drive/folders/1FBaMq4tIdvBcfSAr6EUIAjWLZbtxaP2X?usp=sharing.
-
-#####  3.Run python script to get the file from TFF API
-```python
-python dataset.py
-```
-TFF dependency is required to get this script work. Please check it out: https://www.tensorflow.org/federated/install. 
 
 We will support more advanced models and datasets, such as FedCV, FedNLP (Transformer), FedGCN, FedGAN. Please stay tuned!
 

@@ -9,6 +9,9 @@ You won't cost too much time, we will have engineers and researchers to help wit
 
 https://github.com/FedML-AI/FedML/tree/master/fedml_experiments/standalone/fedavg
 
+- FedOpt (ICLR 2021 - Adaptive Federated Optimization)
+https://github.com/FedML-AI/FedML/tree/master/fedml_experiments/standalone/fedopt
+
 - Decentralized Federated Learning
 
 https://github.com/FedML-AI/FedML/tree/master/fedml_experiments/standalone/decentralized
@@ -19,9 +22,6 @@ https://github.com/FedML-AI/FedML/tree/master/fedml_experiments/standalone/class
 
 - Hierarchical Federated Learning
 https://github.com/FedML-AI/FedML/tree/master/fedml_experiments/standalone/hierarchical_fl
-
-- FedOpt (ICLR 2021 - Adaptive Federated Optimization)
-https://github.com/FedML-AI/FedML/tree/master/fedml_experiments/standalone/fedopt
 
 ### Distributed Computing
 

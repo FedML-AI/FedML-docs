@@ -17,6 +17,12 @@ https://github.com/FedML-AI/FedML/tree/master/fedml_experiments/standalone/decen
 
 https://github.com/FedML-AI/FedML/tree/master/fedml_experiments/standalone/classical_vertical_fl
 
+- Hierarchical Federated Learning
+https://github.com/FedML-AI/FedML/tree/master/fedml_experiments/standalone/hierarchical_fl
+
+- FedOpt (ICLR 2021 - Adaptive Federated Optimization)
+https://github.com/FedML-AI/FedML/tree/master/fedml_experiments/standalone/fedopt
+
 ### Distributed Computing
 
 - Centralized FL Demo (A basic framework that can be used to quickly customize new algorithms):

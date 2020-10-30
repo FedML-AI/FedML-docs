@@ -14,6 +14,7 @@ https://github.com/FedML-AI/FedML/tree/master/fedml_experiments/standalone/fedav
 https://github.com/FedML-AI/FedML/tree/master/fedml_experiments/standalone/fedopt
 
 - FedNova (NeurIPS 2020)
+
 https://github.com/FedML-AI/FedML/tree/master/fedml_experiments/standalone/fednova
 
 - Decentralized Federated Learning

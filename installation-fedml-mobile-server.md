@@ -1,5 +1,5 @@
 # FedML-Mobile Hardware and Software Configuration
-Please refer to https://github.com/FedML-AI/FedML/blob/master/fedml_mobile/server/executor/README.md
+Please refer to https://github.com/FedML-AI/FedML-IoT
 
 Note: an easy way to install is to follow the script at 
 `CI-install.sh` (https://github.com/FedML-AI/FedML/blob/master/CI-install.sh)
